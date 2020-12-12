@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const path = require("path");
+const development_1 = require("./env/development");
+const test_1 = require("./env/test");
+const production_1 = require("./env/production");
+exports.isProd = process.env.NODE_ENV === 'production';
+exports.isTest = process.env.NODE_ENV === 'test';
+exports.appPath = path.join(__dirname, '../');
+exports.config = exports.isTest ? test_1.default : (exports.isProd ? production_1.default : development_1.default);
+exports.env = process.env.NODE_ENV || 'development';

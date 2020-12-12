@@ -1,0 +1,88 @@
+{
+  "name": "order-server",
+  "version": "1.0.0",
+  "description": "票务系统订单服务",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development ./node_modules/.bin/nodemon -e ts -r ts-node/register src/app.ts",
+    "test": "./node_modules/.bin/mocha test/bootstrap.test.ts  --opts test/mocha.opts",
+    "build": "rd/s/q dist & tsc -p ./src/tsconfig.json & copyfiles -u 1 ./src/public/** ./dist & copyfiles package.json process.json pm2_publish.bat pm2_publish.sh ./dist",
+    "pm2": "pm2 start process.json --env production",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:rollback": "./node_modules/.bin/sequelize db:migrate:undo",
+    "create:migration": "./node_modules/.bin/sequelize migration:create"
+  },
+  "keywords": [
+    "koa2",
+    "typescript",
+    "sequelize"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 8.6.0"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "formidable": "^1.2.1",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-json": "^2.0.2",
+    "koa-jwt": "^3.3.2",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "koa-socket.io": "^1.1.2",
+    "koa-static": "^4.0.3",
+    "koa-views": "^6.1.4",
+    "lodash": "^4.17.10",
+    "log4js": "^2.8.0",
+    "moment": "^2.22.2",
+    "multer": "^1.3.0",
+    "mysql2": "^1.5.3",
+    "node-cache": "^4.2.0",
+    "node-schedule": "^1.3.0",
+    "qrcode": "^1.4.0",
+    "reflect-metadata": "^0.1.12",
+    "request": "^2.87.0",
+    "roas-mount": "^1.0.3",
+    "roas-restql": "^1.0.7",
+    "sequelize": "^4.37.10",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.3",
+    "@types/koa": "^2.0.46",
+    "@types/koa-bodyparser": "^4.2.0",
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-jwt": "^3.3.0",
+    "@types/koa-router": "^7.0.28",
+    "@types/koa-views": "^2.0.3",
+    "@types/mocha": "^5.2.1",
+    "@types/node": "^10.3.1",
+    "@types/node-schedule": "^1.2.2",
+    "@types/sequelize": "^4.27.20",
+    "@types/supertest": "^2.0.4",
+    "chai": "^4.1.2",
+    "copyfiles": "^2.0.0",
+    "cross-env": "^5.1.6",
+    "js-beautify": "^1.7.5",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.17.5",
+    "sequelize-cli": "^3.2.0",
+    "should": "^13.2.1",
+    "skipper-disk": "^0.5.11",
+    "supertest": "^3.1.0",
+    "ts-node": "^6.1.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "public/*",
+      "logs/*"
+    ]
+  }
+}

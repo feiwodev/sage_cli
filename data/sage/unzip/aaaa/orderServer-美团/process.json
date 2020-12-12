@@ -1,0 +1,38 @@
+{
+  "apps": [
+    {
+      "name": "order-server",
+      "script": "app.js",
+      "watch": false,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss",
+      "env": {
+        "NODE_ENV": "development",
+        "DATABASE_USERNAME": "root",
+        "DATABASE_PASSWORD": "123456",
+        "DATABASE_NAME": "sage_dj",
+        "DATABASE_HOST": "localhost",
+        "HOST_NAME": "localhost",
+        "HOST_IP": "127.0.0.1",
+        "HTTP_ENABLE": true,
+        "WS_ENABLE": false,
+        "TCP_ENABLE": false,
+        "HTTP_PROVIDER": "",
+        "TCP_PROVIDER": ""
+      },
+      "env_production": {
+        "NODE_ENV": "production",
+        "DATABASE_USERNAME": "root",
+        "DATABASE_PASSWORD": "123456",
+        "DATABASE_NAME": "sage_dj",
+        "DATABASE_HOST": "localhost",
+        "HOST_NAME": "localhost",
+        "HOST_IP": "127.0.0.1",
+        "HTTP_ENABLE": true,
+        "WS_ENABLE": false,
+        "TCP_ENABLE": false,
+        "HTTP_PROVIDER": "",
+        "TCP_PROVIDER": ""
+      }
+    }
+  ]
+}
